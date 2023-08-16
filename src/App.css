@@ -1,0 +1,11 @@
+#root {
+  min-width:100vw;
+  margin: 0 auto;
+  text-align: center;
+}
+input:focus,
+button:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+}

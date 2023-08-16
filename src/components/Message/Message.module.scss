@@ -1,0 +1,81 @@
+.messagerContainer {
+  display: flex;
+  margin: 0px 0px 17px 19px;
+  align-items: flex-start;
+
+  .messageText {
+    font-size: 16px;
+    text-align: left;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background-color: #000;
+    margin-right: 5px;
+    opacity: 0.7;
+    padding-bottom: 7px;
+  }
+
+  .typingAnimation {
+    animation: cursorBlink 1s infinite;
+  }
+
+  @keyframes cursorBlink {
+
+    0%,
+    100% {
+      opacity: 0.7;
+    }
+
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+.messageUser {
+  flex-direction: row-reverse;
+
+  .avatar {
+    margin-left: 13px;
+    margin-right: 0px;
+  }
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  margin-right: 13px;
+  border-radius: 50%;
+}
+
+.stop {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  outline: none !important;
+  border: none;
+}
+
+.message {
+  align-items: center;
+  min-width: 100px;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: rgba(34, 118, 245, 0.20);
+  max-width: 400px;
+  border-radius: 28px;
+  color: #000;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-family: 'SF Pro Text', sans-serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 155%;
+}
