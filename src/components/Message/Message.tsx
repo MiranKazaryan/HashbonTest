@@ -21,6 +21,7 @@ const Message: React.FC<MessageProps> = ({
   handleStopBot,
   loading,
 }) => {
+  
   return (
     <div
       className={`${styles.messagerContainer} ${

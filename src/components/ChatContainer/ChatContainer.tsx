@@ -27,21 +27,7 @@ const ChatContainer: React.FC = () => {
       ]);
     }
   };
-  const handleStopBot = (message: IMessage) => {
-    console.log(message);
-    if (!message.isBot || message.isStopped) return;
 
-    setMessages((prevMessages) => {
-      const updatedMessages = prevMessages.map((msg) => {
-        if (msg === message) {
-          console.log(msg);
-          return { ...msg, isStopped: true, load: false };
-        }
-        return msg;
-      });
-      return updatedMessages;
-    });
-  };
   const updateBotMessage = (text: string, load: boolean) => {
     setMessages((prevMessages) => {
       const updatedMessages = [...prevMessages];
@@ -61,7 +47,22 @@ const ChatContainer: React.FC = () => {
       return updatedMessages;
     });
   };
+  const handleStopBot = (message: IMessage) => {
+    console.log(message);
+    if (!message.isBot || message.isStopped) return;
 
+    setMessages((prevMessages) => {
+      const updatedMessages = prevMessages.map((msg) => {
+        if (msg === message) {
+          console.log(msg);
+          return { ...msg, isStopped: true, load: false };
+        }
+        return msg;
+      });
+      return updatedMessages;
+    });
+  };
+  
   const handleSendMessage = async () => {
     if (inputMessage.trim() === "" || loading) return;
     setLoading(true);
@@ -75,9 +76,7 @@ const ChatContainer: React.FC = () => {
         }
       );
       const dataChunks = response.data;
-
       const formattedInput = `[${dataChunks.replace(/}{/g, "},{")}]`;
-
       const parsedData = JSON.parse(formattedInput);
 
       let botMessage: string = "";
@@ -88,11 +87,8 @@ const ChatContainer: React.FC = () => {
           updateBotMessage(botMessage, false);
           break;
         }
-
         botMessage += chunk.value;
-        console.log("here", botMessage);
         updateBotMessage(botMessage, true);
-
         await new Promise((resolve) => setTimeout(resolve, 30));
       }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
