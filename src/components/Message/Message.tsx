@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Message.module.scss";
-import botAvatar from "../../images/botAvatar.png";
-import userAvatar from "../../images/userAvatar.png";
-import Stop from "../../images/hand-solid.svg";
+import botAvatar from "../../assets/botAvatar.png";
+import userAvatar from "../../assets/userAvatar.png";
+import Stop from "../../assets/hand-solid.svg";
 
 interface Message {
   text: string;
